@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box{
+            width: 400px;
+            height: 200px;
+            border: 1px solid #111;
+            margin: 150px auto;
+            position: relative;
+        }
+
+        .box::after,
+        .box::before,
+        .box > *{
+            content: '';
+            width: 25%;
+            height: 0;
+            position: absolute;
+            transition: 2s ease-in-out;
+        }
+
+        .box::after,
+        .box::before{
+            top: 0;
+            background: tomato;
+        }
+
+        .box::before{
+            left: 0;
+        }
+
+        .box::after{
+            left: 50%;
+        }
+
+        .box > *{
+            background: aquamarine;
+            bottom: 0;
+        }
+
+        .box > div:nth-child(1){
+            left: 25%;
+        }
+
+        .box > div:nth-child(2){
+            left: 75%;
+        }
+
+        .box:hover div,
+        .box:hover::before,
+        .box:hover::after{
+            height: 100%;
+        }
+
+        .box > h1{
+            height: max-content;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            background: rgba(0, 0, 0, .6);
+            font-family: cursive;
+            padding: 15px 0;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 28%;
+            transition: 5s;
+            z-index: 1;
+        }
+
+        .box:hover h1{
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <h1>Saman Htc</h1>
+    </div>
+</body>
+</html>
